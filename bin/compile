@@ -164,6 +164,28 @@ set -e
 # Buildpack profile init script
 mkdir -p $(dirname $PROFILE_PATH)
 
+
+# ## PhantomJS
+
+# config
+PHANTOMJS_VERSION="1.7.0"
+S3_BUCKET="stomita-buildpack-phantomjs"
+
+# s3 packages
+PHANTOMJS_FILE_NAME="buildpack-phantomjs-${PHANTOMJS_VERSION}.tar.gz"
+BUILDPACK_PHANTOMJS_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/${PHANTOMJS_FILE_NAME}"
+
+
+mkdir -p $CACHE_DIR
+if ! [ -e $CACHE_DIR/$PHANTOMJS_FILE_NAME ]; then
+  echo "-----> Fetching PhantomJS buildpack binaries"
+  curl $BUILDPACK_PHANTOMJS_PACKAGE -s -o $CACHE_DIR/$PHANTOMJS_FILE_NAME
+fi
+
+echo "-----> Extracting PhantomJS binaries" 
+mkdir -p $BUILD_DIR/vendor/phantomjs
+tar zxf $CACHE_DIR/$PHANTOMJS_FILE_NAME -C $BUILD_DIR/vendor/phantomjs
+
 # ### Virtualenv Setup
 #
 
