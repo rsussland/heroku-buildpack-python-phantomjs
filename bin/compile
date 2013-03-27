@@ -169,7 +169,7 @@ mkdir -p $(dirname $PROFILE_PATH)
 
 # config
 PHANTOMJS_VERSION="1.9.0"
-
+S3_BUCKET="dIO34WHDjalk3sdjd124hlkj8kk"
 # s3 packages
 PHANTOMJS_FILE_NAME="buildpack-phantomjs-${PHANTOMJS_VERSION}.tar.gz"
 BUILDPACK_PHANTOMJS_PACKAGE="https://${S3_BUCKET}.s3.amazonaws.com/${PHANTOMJS_FILE_NAME}"
