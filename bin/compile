@@ -168,8 +168,7 @@ mkdir -p $(dirname $PROFILE_PATH)
 # ## PhantomJS
 
 # config
-PHANTOMJS_VERSION="1.7.0"
-S3_BUCKET="stomita-buildpack-phantomjs"
+PHANTOMJS_VERSION="1.9.0"
 
 # s3 packages
 PHANTOMJS_FILE_NAME="buildpack-phantomjs-${PHANTOMJS_VERSION}.tar.gz"
