@@ -184,10 +184,10 @@ fi
 
 puts-step "-----> Extracting PhantomJS binaries" 
 echo "-----> Extracting PhantomJS binaries" 
-mkdir -p $BUILD_DIR/vendor/phantomjs
-tar zxf $CACHE_DIR/$PHANTOMJS_FILE_NAME -C $BUILD_DIR/vendor/phantomjs
+mkdir -p $BUILD_DIR/vendor/phantomjs/bin
+tar zxf $CACHE_DIR/$PHANTOMJS_FILE_NAME -C $BUILD_DIR/vendor/phantomjs/bin
 
-puts-step "-----> PhantomJS binaries in: $BUILD_DIR/vendor/phantomjs" 
+puts-step "-----> PhantomJS binaries in: $BUILD_DIR/vendor/phantomjs/bin" 
 
 # ### Virtualenv Setup
 #
