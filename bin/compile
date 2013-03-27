@@ -172,15 +172,15 @@ PHANTOMJS_VERSION="1.9.0"
 S3_BUCKET="dIO34WHDjalk3sdjd124hlkj8kk"
 # s3 packages
 PHANTOMJS_FILE_NAME="buildpack-phantomjs-${PHANTOMJS_VERSION}.tar.gz"
-BUILDPACK_PHANTOMJS_PACKAGE="https://s3.amazonaws.com/${S3_BUCKET}/${PHANTOMJS_FILE_NAME}"
+BUILDPACK_PHANTOMJS_PACKAGE="http://s3.amazonaws.com/${S3_BUCKET}/${PHANTOMJS_FILE_NAME}"
 
 
 mkdir -p $CACHE_DIR
-if ! [ -e $CACHE_DIR/$PHANTOMJS_FILE_NAME ]; then
-  puts-step "-----> Fetching PhantomJS buildpack binaries"
-  echo "-----> Fetching PhantomJS buildpack binaries from ${BUILDPACK_PHANTOMJS_PACKAGE}"
-  curl $BUILDPACK_PHANTOMJS_PACKAGE -s -o $CACHE_DIR/$PHANTOMJS_FILE_NAME
-fi
+
+puts-step "-----> Fetching PhantomJS buildpack binaries"
+echo "-----> Fetching PhantomJS buildpack binaries from ${BUILDPACK_PHANTOMJS_PACKAGE}"
+curl $BUILDPACK_PHANTOMJS_PACKAGE -s -o $CACHE_DIR/$PHANTOMJS_FILE_NAME
+
 
 puts-step "-----> Extracting PhantomJS binaries" 
 echo "-----> Extracting PhantomJS binaries" 
